@@ -1,2 +1,3 @@
 boot/shutdown,ksql,ksql,ksql
+start/stop,ksql,ksql,ksql_rest_ksql_server
 
