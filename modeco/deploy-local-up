@@ -3,3 +3,11 @@
 
 prefix="package_$2"
 
+if [[ "package_ksql_ksql_server_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create package_ksql_ksql_server_volume
+	fi
+	
+if [[ "package_ksql_ksql_server_volume" == "$prefix"* ]] ; then
+			executionplane --silent docker run -v package_ksql_ksql_server_volume:/conteco/pwd ${CONTECO_REGISTRY}$1 --interactive cp -r /modeco/volumes/package_ksql_ksql_server_volume/* /conteco/pwd
+		fi
+		

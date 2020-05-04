@@ -6,7 +6,7 @@ export CONTECO_DC_GLOBAL_PACKAGE_TAG="5.4.0"
 export CONTECO_DC_GLOBAL_STACKNAMES="conteco_dc_ksql,conteco_dc_ksql_rest_ksql_server"
 export CONTECO_DC_GLOBAL_BOOTSTACKS="conteco_dc_ksql"
 export CONTECO_DC_GLOBAL_RUNSTACKS="conteco_dc_ksql_rest_ksql_server"
-export CONTECO_DC_GLOBAL_VOLUME_LIST=""
+export CONTECO_DC_GLOBAL_VOLUME_LIST="${CONTECO_STACKPREFIX}_ksql_server_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES
