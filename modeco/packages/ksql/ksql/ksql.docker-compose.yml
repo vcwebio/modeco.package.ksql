@@ -12,6 +12,7 @@ services:
     networks: [package_overlay]
     deploy:
       mode: replicated
+      replicas: ${KSQL_DEPLOY_REPLICAS}
       resources:
         limits:
           cpus: '${KSQL_DEPLOY_RESOURCES_LIMITS_CPUS}'
@@ -19,7 +20,10 @@ services:
         reservations:
           cpus: '${KSQL_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${KSQL_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+      placement:
+        constraints: [${KSQL_DEPLOY_PLACEMENT_CONSTRAINTS}]
       labels: [${KSQL_DEPLOY_LABELS}]
+    labels: [${KSQL_LABELS}]
 # END SERVICE ksql_server.base
 
 volumes: {package_ksql_ksql_server_volume: { external: true }}
