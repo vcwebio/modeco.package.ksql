@@ -7,24 +7,19 @@ services:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.ksql_server.base:5.4.0
     environment: ['KSQL_BOOTSTRAP_SERVERS=${KSQL_KSQL_BOOTSTRAP_SERVERS}','KSQL_KSQL_SERVICE_ID=${KSQL_KSQL_KSQL_SERVICE_ID}'${KSQL_MODE}]
     command: []
-    volumes: [package_ksql_ksql_server_volume:/conteco/pwd]
+    volumes: [${CONTECO_STACKPREFIX}_ksql_server_volume:/conteco/pwd]
     ports: [${KSQL_PORTS}]
-    networks: [package_overlay]
+    networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
-      ${KSQL_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
-          cpus: '${KSQL_DEPLOY_RESOURCES_LIMITS_CPUS}'
           memory: '${KSQL_DEPLOY_RESOURCES_LIMITS_MEMORY}'
         reservations:
-          cpus: '${KSQL_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${KSQL_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      placement:
-        constraints: [${KSQL_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: [${KSQL_DEPLOY_LABELS}]
-    labels: [${KSQL_LABELS}]
+${KSQL_COMPOSE_EXTENSIONS}
 # END SERVICE ksql_server.base
 
-volumes: {package_ksql_ksql_server_volume: { external: true }}
-networks: {package_overlay: { external: true }}
+networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true }}
+volumes: {${CONTECO_STACKPREFIX}_ksql_server_volume: { external: true }}
+${CONTECO_DC_GLOBAL_COMPOSE_EXTENSIONS}
