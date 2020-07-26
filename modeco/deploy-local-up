@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 
-prefix="package_$2"
+prefix="package_ksql_$2"
 
-if [[ "_ksql_server_volume" == "$prefix"* ]] ; then
-	executionplane --silent docker volume create _ksql_server_volume
+if [[ "package_ksql_ksql_ksql_server_volume" == "$prefix"* ]] ; then
+	executionplane --silent docker volume create package_ksql_ksql_ksql_server_volume
 	fi
 	
-if [[ "_ksql_server_volume" == "$prefix"* ]] ; then
-			executionplane --silent docker run -v _ksql_server_volume:/conteco/pwd ${CONTECO_REGISTRY}$1 --interactive tar -C / -xvf /modeco/volumes/_ksql_server_volume.tar
+if [[ "package_ksql_ksql_ksql_server_volume" == "$prefix"* ]] ; then
+			executionplane --silent docker run -v package_ksql_ksql_ksql_server_volume:/conteco/pwd ${CONTECO_REGISTRY}$1 --interactive tar -C / -xvf /modeco/volumes/ksql_ksql_server_volume.tar
 		fi
 		
